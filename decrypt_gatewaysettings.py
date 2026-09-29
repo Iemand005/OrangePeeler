@@ -182,7 +182,9 @@ def main():
         print("no GatewaySettings_*.bin files found in %s" % target, file=sys.stderr)
         sys.exit(1)
 
-    out_dir = args.out or target if os.path.isdir(target) else os.path.dirname(target)
+    out_dir = args.out
+    if out_dir is None:
+        out_dir = target if os.path.isdir(target) else os.path.dirname(target)
     os.makedirs(out_dir, exist_ok=True)
     for f in files:
         process_file(f, out_dir, args.phase)
