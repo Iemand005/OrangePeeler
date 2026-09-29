@@ -1,8 +1,11 @@
 # Orange `GatewaySettings` Format
 
 Analysis of the `GatewaySettings_<HHMMSS>-<DDMMYY>.bin` files exported by an
-Orange **Sagemcom F@ST 3284-family** gateway (eCos-based Broadcom device,
-OEM generation shared with the F@ST 3284/3686 line). 22 samples analysed.
+Orange gateway identified as the **Askey/Siligence TCG300** (EuroDocsis 3.0
+cable modem, Broadcom BCM3384, eCos, web admin 192.168.0.1). The export uses
+the Sagemcom F@ST 3284/3686-family header magic (`...-057` suffix) — the
+standard Broadcom `GatewaySettings` format of that OEM generation — but a
+different device underneath. 22 samples analysed.
 
 ## 1. Big picture
 
@@ -92,9 +95,35 @@ export, presumably by the router (RNG or a per-device secret in the firmware).
 
 ### Zero-padding structure
 All padding runs are 16-byte aligned within the data region. `bcm2-utils`
-parses this same region as `nv_group` TLVs (`u16 size` + 4-char printable magic
-+ `u16 version`); after de-obfuscation **no such TLV groups parse** and there is
+parses this same region as `nv_group` TLVs (`u16 size` + 4-char magic
++ data); after de-obfuscation **no such TLV groups parse** and there is
 no printable ASCII — the records are opaque binary fields.
+
+Searches performed — all negative:
+- **Group-TLV scan**: for each of the 22 files, for every key rotation
+  0..15, walking `[u16 size][u32 magic]` chains from every start offset in
+  the first 0x200 bytes (accepting printable *or* hexspeak high-bit magics
+  like the `0xd0c20130` / `0xf2a1f61f` documented ones): **no valid chain
+  of 2+ groups anywhere** (besides incidental garbage).
+- **ASCII/UTF-16 string search** across all 16 rotations and a
+  byte-swapped variant: no run ≥ 8 chars; known-plaintext needles
+  `Orange`, `Orange-aaff0`, `aaff0`, `Terraria`, `Minecraft`, `wireless`,
+  `MultiSSID` present in none of the files.
+- **Length-prefixed string (p8string) scan** (byte `n` followed by `n`
+  printable chars): only ~10–70 hits per file in ~21k non-zero bytes, i.e.
+  noise, and the "best" phase is random per file.
+- **Same-router static-content check** (`064631`/`064642` 11 s apart and the
+  `22161x` cluster): non-zero plaintext agreement ~0.3% (random coin-flip
+  level). No persistent static configuration survives across exports.
+- **Entropy / compression check**: no zlib/bz2/lzma/gzip/zip streams.
+- The documented dynnv **subtraction + swap** cipher
+  (16 × 16-byte wrapped keys) also yields no groups or text.
+
+The two remaining live explanations for "no readable config": the data really
+is session/state records, or the real transform is an undocumented cipher for
+the `-057` magic — `bcm2-utils`' own `doc/gwsettings.md` lists the Sagem F@ST
+3284 encryption as *unknown* (``| Sagem | F@st3284 | ? | ? | settings |``), so
+no public profile exists to cross-check against.
 
 ### Second most-common block / constant fields
 Each file has a second 16-byte block repeated ~41–42× (e.g. `e71af56f84464c4dbf
@@ -103,7 +132,7 @@ at a fixed offset across the file (a repeated 224-byte settings record), which
 confirms the key’s 16-byte period: same plaintext at the same phase ⇒ same
 ciphertext block.
 
-### II. What the decrypted data looks like
+### What the decrypted data looks like
 - ~36% of the region is zero padding between records.
 - Records are 0xA0-size blobs → 4-byte-looking trailers → zero padding to the
   next 16-byte boundary; e.g. blocks shaped `539a837e0000…` (u32 + 12 zeros) or
@@ -122,6 +151,25 @@ natural implementation `KEY` aligned at `0x60`; it matches the dominant-block
 value directly and keeps the first data byte of the reference sample `0x00`. The
 script exposes `--phase N` (0..15) if a different rotation ever turns out to be
 the one the firmware uses.
+
+### Where is the WiFi SSID / port-forward config?
+This export does **not** contain the user-facing LAN/WiFi configuration. On
+this class of DOCSIS cable modem the `GatewaySettings` dump carries
+headend/provisioning state (CM config, logging, DHCP, SNMP, admin/userif
+settings), while the WiFi SSIDs and port-forward rules live in the router's
+separate wireless configuration partition / `dynnv` NVRAM — which this export
+does not include. That is consistent with the observed per-export regenerated,
+non-persistent content and the total absence of any text.
+
+To obtain the real WiFi / NAT rules:
+- **Read the NVRAM partitions from flash** with qkaiser's bootloader tooling
+  (`bcm2dump` on the TCG300 — see References). `dynnv.bin`/`permnv.bin`
+  contain the applied LAN settings and can be parsed with `bcm2cfg get`.
+- Check the admin UI for a **full-backup** export distinct from
+  `GatewaySettings` (some Sagemcom/Askey admin pages offer a text/XML
+  `Backup` that includes wireless state).
+- The modem's working config also comes from the cable headend's CM config
+  file, not from any user-visible export.
 
 ## 4. Decryption script
 
@@ -166,20 +214,33 @@ processes every `GatewaySettings_*.bin` in the current directory.
 - **mati7337/orange-config** — Orange modem configuration decryption; shows
   that key material in this product line can be a firmware file
   (`/security/hgwcfg/hgwcfg.key`). <https://github.com/mati7337/orange-config>
-- **qkaiser** — Sagemcom F@ST 3686/Gateway teardown blog posts and bcm2-utils
-  contributions; origin of the static salt used by the sibling profiles.
+- **qkaiser — "A Clockwork Orange" (2021-04-25)** — reverse engineering of the
+  **Orange/Askey TCG300**: identifies the modem (BCM3384, EuroDocsis 3.0),
+  documents custom `bcm2-utils` bootloader profiles and the `bcm2dump`
+  workflow for reading `dynnv`/`permnv` from flash. Blog:
+  <https://quentinkaiser.be/security/2021/04/25/orange/>; PDF report:
+  <https://quentinkaiser.be/assets/qkaiser_orange_askey_tcg300_vuln_report.pdf>.
+  Note: that report's profiles are for the **bootloader** (dump/decrypt of
+  NVRAM at boot), not for the `GatewaySettings.bin` *web export* encryption —
+  which remains undocumented for the `-057` Sagem variant.
 - Sagemcom **F@ST 3284 / 3686** are eCos-based Broadcom gateways; the
-  `GatewaySettings.bin` export exists only on this family, which is why
+  `GatewaySettings.bin` format used here belongs to that family (the Askey
+  TCG300 ships the same Broadcom `GWS` loader/format), which is why
   `bcm2-utils` (built around it) was the relevant prior art.
 
 ## 6. Open questions
 
-- Where the per-file 16-byte key comes from (firmware side). A rootfs dump
-  (`/security/hgwcfg/hgwcfg.key` analog) or a newer firmware image would settle
-  it.
+- The source of the per-file 16-byte XOR key (firmware side). A rootfs dump
+  (the `mati7337/orange-config` analog `/security/hgwcfg/hgwcfg.key`, or the
+  device key read methods in qkaiser's report) or a newer firmware image would
+  settle it.
 - The internal record/field layout of the decrypted blobs. Content is
-  per-export, so it likely needs the router-side `gwsdyn`/`gwslog` producer or
-  an API trace to map field-by-field.
+  per-export, so it likely needs the router-side producer (a `gwsdyn`/
+  `gwslog` equivalent) or an API/HTTP trace to map field-by-field.
+- Whether the `-057` data region uses an additional undocumented cipher on top
+  of the XOR (bcm2-utils lists F@st3284 encryption as unknown). A firmware
+  binary search for the export routine / key generation would answer both this
+  and the key-source question at once.
 
 ## Appendix A — per-file keys (22 samples)
 

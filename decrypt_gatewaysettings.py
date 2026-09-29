@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Decrypt Broadcom/Sagemcom GatewaySettings_*.bin (Orange F@ST 3284 family).
+"""Decrypt Broadcom/Sagemcom GatewaySettings_*.bin (Askey TCG300 via Orange).
 
 The files use a per-file 16-byte repeating-XOR obfuscation over the data
 region (0x60 .. EOF). The key is *self-describing*: the zero-plaintext padding
