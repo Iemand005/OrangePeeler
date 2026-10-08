@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'HelvNeue55_W1G';
+    src: url('../image/fonts/HelvNeue55_W1G.eot') format('embedded-opentype'),
+         url('../image/fonts/HelvNeue55_W1G.woff') format('woff'),
+         url('../image/fonts/HelvNeue55_W1G.woff2') format('woff2'),
+         url('../image/fonts/HelvNeue55_W1G.ttf') format('truetype'),
+         url('../image/fonts/HelvNeue55_W1G.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HelvNeue75_W1G';
+    src: url('../image/fonts/HelvNeue75_W1G.eot') format('embedded-opentype'),
+         url('../image/fonts/HelvNeue75_W1G.woff') format('woff'),
+         url('../image/fonts/HelvNeue75_W1G.woff2') format('woff2'),
+         url('../image/fonts/HelvNeue75_W1G.ttf') format('truetype'),
+         url('../image/fonts/HelvNeue75_W1G.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

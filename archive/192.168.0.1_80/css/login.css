@@ -1,0 +1,433 @@
+#top_content{
+	min-height:80px;
+	padding-top: 23px;
+	padding-right: 0px;
+	padding-bottom: 20px;
+	padding-left: 0px;
+}
+#center_Cbox {
+	min-height: 400px;
+	background-color: #FFFFFF;
+	width: 940px;
+	float: left;
+	margin-bottom: 0px;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-bottom: 10px;
+	padding-left: 5px;
+}
+#minbox {
+    margin-right: auto;
+    margin-left: auto;
+    width: 950px;
+}
+body{
+	background-color:#000000;
+}
+#center {
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+#top_content_up {
+    height: 69px;
+    margin-bottom: 0px;
+}
+#C_down{
+	min-height:50px;
+	clear: both;
+	color:#FFFFFF;
+	padding-bottom:30px;
+	padding-top:20px;
+}
+#C_down a{
+	color:#FFFFFF;
+}
+#C_down .C_left{
+	float: left;
+}
+#C_down .C_right{
+	float:right;
+	width:500px;
+}
+#C_down .C_right img{
+	float:right;
+	margin-left:10px;
+}
+.pageTitle{
+	color:#FF7900;
+	font-size:40px;
+	margin-top: 10px;
+	padding-bottom: 20px;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #D6D6D6;
+}
+#login_content{
+	padding-top: 20px;
+}
+.pageTitle,#login_content{
+	margin-right: 30px;
+	margin-left: 30px;
+}
+#login_speedtest{
+	background-image: url(../image/login_03.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 25px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	padding-left: 42px;
+	margin-top: 10px;
+}
+#login_speedtest a,.login_box a{
+	color:#000000;
+}
+.login_box a,.severFontSize{
+	font-size:16px;
+}
+.sever_img{
+	padding-top: 0px;
+	padding-bottom: 0px;
+	float:left;
+	width:431px;
+	text-align: center;
+}
+.login_box{
+	float:left;
+}
+.login_inputbox{
+	margin-bottom:30px;
+	font-size:16px;
+}
+.login_inputbox .buttonStyle04{
+	float:none;
+	height: 30px;
+	width: 90px;
+	margin-top:10px;
+	margin-bottom:10px;
+	font-size:14px;
+}
+.yourWifi,.internetAccess,.cableNetwork{
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	min-height:40px;
+	padding-left: 55px;
+	padding-top:5px;
+	margin-bottom:10px;
+	width:390px;
+}
+.yourWifiScheduling,.internetAccess,.cableNetwork{
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	min-height:40px;
+	padding-left: 55px;
+	padding-top:5px;
+	margin-bottom:10px;
+	width:390px;
+}
+.yourWifi{
+	background-image: url(../image/login_01.gif);
+}
+.yourWifiScheduling {
+	background-image: url(../image/login_07.gif);
+}
+.internetAccess{
+	background-image: url(../image/login_06.gif);
+}
+.cableNetwork{
+	background-image: url(../image/login_02.gif);
+}
+.cableNetwork .fontStyle04{
+	color:#0070c0;
+}
+.description {
+    width: 445px;
+    display: block;
+}
+
+#CmPicture{
+    max-width: 400px;
+}
+
+/*mobile css*/
+.mobile_lang {
+    float: right;
+    margin-right: 0px;
+}
+.themod_mobile{
+    display: block;
+    top: 0px;
+    left: 20px;
+    padding-top:5px;
+    position: absolute;
+    width:calc(100% - 40px);/*css3*/
+    height:38px;
+}
+.logo_img{
+    height:37px;
+    margin-left: 0px;
+    margin-right:5px;
+    float:left;
+}
+@media (max-width: 1000px){
+    #minbox {
+        width: 100%;
+    }
+    #center {
+        padding-top: 0px;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    #center_Cbox {
+        min-height: 200px;
+        background-color: #FFFFFF;
+        width: calc(100% - 140px);
+        padding-left: 70px;
+        padding-right: 70px;
+        padding-top: 50px;
+        /* padding-bottom: 50px; */
+        padding-bottom: 10px;
+        margin-bottom: 0px;
+        margin-top: 10px;
+        float: none;
+    }
+    #C_down{
+        min-height:50px;
+        clear: both;
+        color:#FFFFFF;
+        padding-bottom:30px;
+        padding-top:20px;
+        padding-left:20px;
+        padding-right:20px;
+    }
+    .sever_img{
+        width: 110%;
+        text-align: left;
+        padding: 0px;
+    }
+    .login_box{
+        /* width: 60%; */
+        width: 100%;
+    }
+    .yourWifi,.internetAccess,.cableNetwork{
+        width:90%;
+    }
+    .yourWifiScheduling,.internetAccess,.cableNetwork{
+        width:90%;
+    }
+    #CmPicture{
+        /* max-width: 250px; */
+        max-width: 80%;
+    }
+    .description{
+        width: 100%;
+        padding: 10px 0;
+    }
+    .login_inputbox .buttonStyle04{
+        margin-left: 0;
+    }
+}
+@media (max-width: 760px) {
+/*    .sever_img{
+        display:none;
+    }*/
+    /* .login_box{
+        width: calc(100% - 55px);
+    } */
+}
+@media (max-width: 620px) {
+    #C_down .C_right{
+        float:left;
+        width: 100%;
+        padding-bottom: 20px;
+    }
+    #C_down .C_left{
+        width: 100%;
+        margin-bottom:15px;
+    }
+    #center_Cbox{
+        width: calc(100% - 60px);
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+@media (max-width: 480px) {
+    #center_Cbox{
+        width: calc(100% - 20px);
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+/*custom windows*/
+.password_forgottenStyle{
+    left: 220px;
+    top: 20px;
+    position: absolute ;
+    background-color: #ffffff;
+    z-index: 9998;
+    padding: 30px;
+    font-size: 14px;
+}
+.password_forgottenStyle .content {
+  width: 843px;
+  height: 492px;
+  background-color: #d6d6d6;
+  padding: 20px 40px;
+  position: relative;
+}
+.password_forgottenStyle .content .password_forgotten_left {
+  width: 421px;
+  float:left;
+  height: 246px;
+}
+.password_forgottenStyle .content .password_forgotten_right {
+  width: 421px;
+  height: 246px;
+  font-size:23px;
+  float:right;
+}
+.customWindow {
+  background-color: #fff;
+  border: solid 1px;
+  padding: 30px;
+  width: 850px;
+  z-index: 9998;
+  position: absolute ;
+  left: 220px;
+  top: 20px;
+}
+.customWindow .content {
+  width: 770px;
+  height: 1150px;
+  background-color: #d8d8d8;
+  padding: 20px 40px;
+  position: relative;
+}
+.customWindow .content .overviewPic0 {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  top: 15px;
+  right: 40px;
+}
+.customWindow .content .title_main {
+  font-weight: 800;
+  font-size: 28px;
+}
+.customWindow .content .title_sub {
+  color: #ff5d00;
+  font-weight: 500;
+  font-size:18px;
+  margin-top: 25px;
+}
+
+.customWindow .content .overviewPic1 {
+  width: 400px;
+  height: 160px;
+  margin-left: 40px;
+  margin-top: 20px;
+}
+.customWindow .content .paragraph {
+    margin-top: 40px;
+}
+.customWindow .content .title_sub2 {
+  margin-top: 30px;
+  font-weight: bold;
+  font-size:16px;
+}
+.customWindow .content .overviewPic2, .customWindow .content .overviewPic3 {
+  display: inline-block;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+.customWindow .content .overviewPic2 {
+  width: 120px;
+  height: 85px;
+}
+.customWindow .content .overviewPic3 {
+  width: 140px;
+  height: 85px;
+}
+.customWindow .content .footer{
+    margin-top: 15px;
+}
+.customWindow .content .footer .overviewPic4, .customWindow .content .footer .overviewPic5, .customWindow .content .footer span {
+  display: inline-block;
+  vertical-align: middle;
+}
+.customWindow .content .footer .overviewPic4, .customWindow .content .footer .overviewPic5{
+  width: 60px;
+  height: 60px;
+}
+.customWindow .content .footer span {
+  margin-left:40px;
+  width: 450px;
+}
+
+@media (max-width: 1000px) {
+    .customWindow{
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        left: auto;
+    }
+    .customWindow .content {
+        padding: 10px;
+        width: auto;
+        height: auto;
+    }
+    .customWindow .content img{
+        width: 100%;
+    }
+    .customWindow .content .overviewPic0 {
+        width: 40px;
+        right: 4px;
+        top: 10px;
+    }
+    .customWindow .content .overviewPic1 {
+        width: 90%;
+        height: auto;
+        margin: 25px auto;
+    }
+    .customWindow .content .overviewPic2, .customWindow .content .overviewPic3{
+        width: 40%;
+        margin-left: 20px;
+    }
+    .customWindow .content .paragraph {
+        margin-top: 10px;
+    }
+    .customWindow .content .footer span {
+        margin-left: 0px;
+        width: auto;
+    }
+    .PC_buttonBox {
+        margin-top: 10px;
+    }
+    .password_forgottenStyle{
+        left: 0px;
+        top: 5px;
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .password_forgottenStyle .content{
+        width: 100%;
+        height: auto;
+        padding: 0px;
+    }
+    .password_forgottenStyle .content .password_forgotten_left{
+        width: auto;
+        float: initial;
+        height: auto;
+    }
+    .password_forgottenStyle .content .password_forgotten_left img{
+        transform: scale(0.8);
+    }
+    .password_forgottenStyle .content .password_forgotten_right{
+        width: 94%;
+        height: auto;
+        float: initial;
+        padding: 10px 10px;
+    }
+}

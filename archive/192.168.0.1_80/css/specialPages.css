@@ -1,0 +1,414 @@
+.neightborhoodCSS1{
+	margin-left: 30px;
+}
+.neightborhoodCSS2{
+	margin-left: 150px;
+}
+.neightborhoodDetailCSS1{
+	float: right;
+}
+#chartBlock2G_1,#chartBlock5G_1,#chartBlock2G_2,#chartBlock5G_2{
+    padding: 0px 80px;
+}
+#chartBlock2G_2,#chartBlock5G_2{
+    border-top-width: 1px;
+    border-top-style: dashed;
+    border-top-color: #999999;
+}
+
+.C_chart01{
+	font-size:10px;
+	height:240px;
+	position: relative;
+	background-image: url(../image/chartImg00.gif);
+	background-repeat: repeat-x;
+	background-position: 0px 213px;
+}
+.chart_arrow{
+	background-image: url(../image/chartImg01.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	margin: 0px;
+	padding: 0px;
+	height: 14px;
+	width: 21px;
+	position: absolute;
+	right: 0px;
+	bottom: 19px;
+}
+.StripBox_title{
+    position: absolute;
+    left: -80px;
+}
+.StripBox,.StripBox_title{
+	float:left;
+	margin-left:20px;
+}
+.C_chart01 .StripBox_title,
+.C_chart01 .StripBox_title .chart_S_01,
+.C_chart01 .StripBox_title .chart_S_02,
+.C_chart01 .StripBox_title .chart_S_03
+.C_chart02 .StripBox_title,
+.C_chart02 .StripBox_title .chart_S_01,
+.C_chart02 .StripBox_title .chart_S_02,
+.C_chart02 .StripBox_title .chart_S_03{
+	width:60px;
+}
+.C_chart01 .StripBox{
+	max-height:240px;
+	text-align: center;
+}
+.C_chart01 .StripBox .chart_S_00,
+.C_chart01 .StripBox .chart_S_01,
+.C_chart01 .StripBox .chart_S_02,
+.C_chart01 .StripBox .chart_S_03,
+.C_chart02 .StripBox .chart_S_00,
+.C_chart02 .StripBox .chart_S_01,
+.C_chart02 .StripBox .chart_S_02,
+.C_chart02 .StripBox .chart_S_03{
+	width:10px;
+}
+.C_chart01 .StripBox .chart_S_01,
+.C_chart01 .StripBox_title,
+.C_chart01 .StripBox_title .chart_S_01,
+.C_chart02 .StripBox_title,
+.C_chart02 .StripBox_title .chart_S_01{
+	height:13px;
+}
+.C_chart01 .StripBox_title .chart_S_02{
+	height:200px;
+}
+.C_chart01 .StripBox .chart_S_02{
+	max-height:200px;
+	background-color:#CCCCCC;
+	height:130px;
+}
+.C_chart01 .StripBox .chart_S_00{
+	height:70px;
+}
+.C_chart01 .StripBox .chart_S_03,
+.C_chart01 .StripBox_title .chart_S_03,
+.C_chart02 .StripBox .chart_S_03,
+.C_chart02 .StripBox_title .chart_S_03{
+	color:#999999;
+	padding-top:7px;
+	height:20px;
+}
+.C_chart02{
+	font-size:10px;
+    height:178px;
+	position: relative;
+	background-image: url(../image/chartImg00.gif);
+	background-repeat: repeat-x;
+	background-position: 0px 151px;
+	/* border-top-width: 1px;
+	border-top-style: dashed;
+	border-top-color: #999999; */
+}
+.C_chart02 .StripBox{
+	max-height:178px;
+	text-align: center;
+}
+.C_chart02 .StripBox_title .chart_S_02{
+	height:138px;
+}
+.C_chart02 .StripBox .chart_S_01{
+	background-color:#8F8F8F;
+	height:50px;
+}
+.C_chart02 .StripBox .chart_S_02{
+	max-height:178px;
+	background-color:#FF7900;
+	height:100px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #EEEEEE;
+}
+.C_chart02 .StripBox .chart_S_00{
+	height:0px;
+}
+
+#chartBlock5G_2 .StripBox_title .chart_S_03{
+    position: relative;
+    top: 40px;
+}
+.chart01_Description,.chart02_Description1,.chart02_Description2 {
+	/* border-left-width: 15px;
+	border-left-style: solid; */
+	padding-left: 15px;
+	margin-bottom:20px;
+	margin-top:10px;
+	margin-left:10px;
+	float:right;
+}
+.chart01_Description{
+	border-left-color: #CCCCCC;
+	margin-bottom: 60px;
+}
+.chart02_Description1 {
+	border-left-color: #8F8F8F;
+}
+.chart02_Description2 {
+	border-left-color: #FF7900;
+}
+.descBox5G_2 {
+    padding-top: 25px;
+}
+.colorBox{
+	width:15px;
+	height:15px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.chart01_Color{
+    background-color: #ccc;
+}
+.chart02_Color1{
+    background-color: #8F8F8F;
+}
+.chart02_Color2{
+    background-color: #FF7900;
+}
+.AdvancedParametersCSS01{
+	width:170px;
+	float:right;
+	margin-left:10px;
+}
+.AdvancedParametersCSS02{
+	width:116px;
+}
+.FixIPpassignation_Indentation{
+	padding-left:50px;
+}
+.FixIPpassignation_mac3 {
+    width: 100px;
+}
+
+.portOpening_windows .C_table-tr-title{
+	display:none;
+}
+.portOpening_windows .m_tableTitle {
+	float:left;
+	display: block;
+	width:39%;
+	margin-right:1%;
+}
+.portOpening_windows .C_table2 .m_tableTitle{
+	background-color:#8F8F8F;
+}
+.portOpening_windows .C_table-tr {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCCCCC;
+}
+.portOpening_windows .C_table-tr:after,.C_table-tr2:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.portOpening_windows .noline{
+	border-bottom-width: 0px;
+}
+.portOpening_windows .C_table-td.C_tdSize01,
+.portOpening_windows .C_table-td.C_tdSize02,
+.portOpening_windows .C_table-td.C_tdSize04,
+.portOpening_windows .C_table-td.C_tdSize05,
+.portOpening_windows .C_table-td.C_tdSize06,
+.portOpening_windows .C_table-td.C_tdSize07,
+.portOpening_windows .C_table-td.C_tdSize08,
+.portOpening_windows .C_table-td.C_tdSize09,
+.portOpening_windows .C_table-td.C_tdSize10,
+.portOpening_windows .C_table-td {
+	width: 60%;
+	height: 24px;
+	margin-bottom:10px;
+}
+.portOpening_windows .C_table-td.C_tdSize03 {
+	width: auto;
+}
+
+
+/*mobile*/
+@media (max-width: 1000px){
+    .neightborhoodCSS1{
+        margin-left: 0px;
+    }
+    .neightborhoodCSS2{
+        margin-left: 0px;
+    }
+    .AdvancedParametersCSS01{
+        width:150px;
+        float:right;
+        margin-left:10px;
+    }
+    .AdvancedParametersCSS02{
+        width:80px;
+    }
+    .FixIPpassignation_Indentation{
+        padding-left:0px;
+    }
+    .FixIPpassignation_mac3 {
+        width: 70px;
+    }
+    .m_buttonBox .Diagnostic_m_L_button,.m_buttonBox .Diagnostic_m_L_button2{
+        /* width: 33%; */
+        width: calc(100% /3);
+        border-left-width: 1px;
+        border-left-style: solid;
+        border-left-color: #FFFFFF;
+        font-size: 16px;
+        padding-top: 0px;
+        padding-right: 10px;
+        padding-bottom: 3px;
+        padding-left: 10px;
+        text-decoration: none;
+        border-right-width: 0px;
+        border-top-width: 0px;
+        border-bottom-width: 0px;
+        height: 50px;
+        float: left;
+        text-align: center;
+        font-family: HelvNeue55_W1G, HelvNeue75_W1G;
+    }
+    .m_buttonBox .Diagnostic_m_L_button{
+        background-color:#FF7900;
+        color:#000000;
+    }
+    .m_buttonBox .Diagnostic_m_L_button2{
+        background-color:#D6D6D6;
+        color:#8F8F8F;
+    }
+}
+@media (max-width: 760px) {
+    .tableBox05 .T_Left.neightborhoodCSS3,.tableBox06 .T_Left.neightborhoodCSS3{
+        background-color:#FFFFFF;
+    }
+    .StripBox,.StripBox_title{
+        margin-left:10px;
+    }
+    .AdvancedParametersCSS01{
+        width:150px;
+        float:right;
+        margin-left:10px;
+    }
+    .AdvancedParametersCSS02{
+        width:100px;
+    }
+
+    .portOpening_windows .m_tableTitle {
+        width: calc(100% - 20px);
+        margin-right: 0px;
+        background-color: #D6D6D6;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        margin-top: 10px;
+    }
+
+    .portOpening_windows .C_table-td.C_tdSize01,
+    .portOpening_windows .C_table-td.C_tdSize02,
+    .portOpening_windows .C_table-td.C_tdSize04,
+    .portOpening_windows .C_table-td.C_tdSize05,
+    .portOpening_windows .C_table-td.C_tdSize06,
+    .portOpening_windows .C_table-td.C_tdSize07,
+    .portOpening_windows .C_table-td.C_tdSize08,
+    .portOpening_windows .C_table-td.C_tdSize09,
+    .portOpening_windows .C_table-td.C_tdSize10,
+    .portOpening_windows .C_table-td {
+        width: 100%;
+    }
+    .portOpening_windows .C_table-td{
+        margin-top:15px;
+    }
+    #chartBlock2G_1, #chartBlock2G_2 {
+        padding: 0px 70px;
+    }
+    #chartBlock5G_1, #chartBlock5G_2{
+        padding: 0px 60px;
+    }
+    #chartBlock5G_1 .StripBox, #chartBlock5G_2 .StripBox{
+        margin-left: 8px;
+    }
+}
+@media (max-width: 620px) {
+    .AdvancedParametersCSS01{
+        width:130px;
+        float:right;
+        margin-left:10px;
+    }
+    .AdvancedParametersCSS02{
+        width:80px;
+    }
+    #chartBlock2G_1, #chartBlock2G_2 {
+        padding: 0px 55px;
+    }
+    #chartBlock5G_1, #chartBlock5G_2 {
+        padding-right: 30px;
+        padding-left: 55px;
+    }
+    .chart01_Description,.chart02_Description1,.chart02_Description2 {
+        float:none;
+    }
+}
+@media (max-width: 480px) {
+    .AdvancedParametersCSS01{
+        width:100px;
+        float:right;
+        margin-left:10px;
+    }
+    .FixIPpassignation_mac3 {
+        width: 50px;
+    }
+    input#GHZ24_opt,input#GHZ50_opt {
+        margin-top: 5px;
+	}
+    #chartBlock2G_1, #chartBlock2G_2{
+        padding: 0px 15px;
+    }
+    #chartBlock2G_2 .StripBox_title .chart_S_01{
+        position: absolute;
+        left: 50px;
+     }
+    #chartBlock2G_2 .StripBox_title .chart_S_03{
+        position: absolute;
+        top: 170px;
+        left: 50px;
+     }
+    #chartBlock5G_2 .StripBox_title .chart_S_01{
+        position:absolute;
+        left: 20px;
+	}
+    #chartBlock5G_2 .StripBox_title .chart_S_03{
+        position:absolute;
+        top: 175px;
+        left: 20px;
+    }
+}
+@media (max-width: 360px) {
+    #chartBlock2G_1, #chartBlock2G_2,#chartBlock5G_1, #chartBlock5G_2{
+        padding:0px;
+    }
+    #chartBlock2G_1 .StripBox_title .chart_S_03{
+        position:absolute;
+        top: 230px;
+        left: 50px;
+     }
+    #chartBlock5G_1 .StripBox_title .chart_S_03{
+        position:absolute;
+        top: 230px;
+        left: 50px;
+     }
+     #chartBlock5G_2 .StripBox_title .chart_S_01{
+        left: 50px;
+	}
+     #chartBlock5G_2 .StripBox_title .chart_S_03{
+        top: 190px;
+        left: 50px;
+    }
+    #chartBlock5G_1 .StripBox, #chartBlock5G_2 .StripBox {
+        margin-left: 6px;
+    }
+}
